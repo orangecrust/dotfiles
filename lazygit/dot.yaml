@@ -1,4 +1,4 @@
 links:
-  - config.yml: ~/AppData/Local/lazygit/config.yml
+  config.yml: ~/AppData/Local/lazygit/config.yml
 
-install: scoop install lazygit
+installs: scoop install lazygit
