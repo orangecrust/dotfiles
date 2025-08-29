@@ -1,0 +1,16 @@
+links:
+  .ideavimrc: ~/AppData/Local/nvim/.ideavimrc
+  autocmds.lua: ~/AppData/Local/nvim/autocmds.lua
+  dot.yaml: ~/AppData/Local/nvim/dot.yaml
+  init.lua: ~/AppData/Local/nvim/init.lua
+  keymap.lua: ~/AppData/Local/nvim/keymap.lua
+  lazy-lock.json: ~/AppData/Local/nvim/lazy-lock.json
+  opts.lua: ~/AppData/Local/nvim/opts.lua
+  plugins.lua: ~/AppData/Local/nvim/plugins.lua
+  snippets: ~/AppData/Local/nvim/snippets
+
+depends:
+  - ../pwsh
+  - ../windows_terminal
+
+installs: scoop install neovim, ripgrep, fzf, zig, lua-language-server, fd

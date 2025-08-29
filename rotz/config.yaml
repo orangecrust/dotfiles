@@ -1,0 +1,3 @@
+dotfiles: ~/.dotfiles
+link_type: 'symbolic'
+shell_command: pwsh -NoProfile -C {{ quote "" cmd }}

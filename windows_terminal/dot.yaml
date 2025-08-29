@@ -1,0 +1,4 @@
+links:
+  settings.json: ~/scoop/apps/windows-terminal/current/settings/settings.json
+
+installs: scoop install windows-terminal

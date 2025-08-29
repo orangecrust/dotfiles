@@ -1,0 +1,98 @@
+" default options
+set hlsearch
+set number relativenumber
+set ignorecase
+set smartcase
+set incsearch
+set hidden
+set ic
+filetype plugin indent on
+"let mapleader="\\"
+let mapleader=" "
+let g:python_highlight_all = 1
+set shell=pwsh
+let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+set shellquote= shellxquote=
+
+" remap esc
+imap kj <esc>
+imap KJ <esc>
+
+" move more
+sethandler <C-j> a:vim
+sethandler <C-j> a:vim
+sethandler <C-k> a:vim
+sethandler <C-k> a:vim
+sethandler <C-h> a:vim
+sethandler <C-h> a:vim
+sethandler <C-l> a:vim
+sethandler <C-l> a:vim
+nnoremap <C-j> 10j
+vnoremap <C-j> 10j
+nnoremap <C-k> 10k
+vnoremap <C-k> 10k
+nnoremap <C-h> 5h
+vnoremap <C-h> 5h
+nnoremap <C-l> 5l
+vnoremap <C-l> 5l
+
+" search selection
+vnoremap <leader>/ <esc>/\%V
+vnoremap <a-/> :s/\%V
+
+" force quit
+nnoremap <leader>q :q!<CR>
+
+" ctrl bkspace/del
+inoremap <C-BS> <C-w>
+imap <C-d> <C-[>ldwi
+
+" ctrl+v workaround for visual block
+nnoremap <leader>v <C-v>
+
+" edit this file
+nnoremap <leader>e :e ~/.ideavimrc<CR>
+nnoremap <leader>w :w<CR>:so ~/.ideavimrc<CR>
+
+" remove current highlighting
+nnoremap <leader>h :noh<CR>
+
+" don't jump with *
+nmap <silent> * "syiw<Esc>: let @/ = @s<CR>: let &hls=0<cr>: let &hls=1<cr>
+
+set timeoutlen=1500
+
+" navigate tabs
+nnoremap <a-.> :action NextTab<CR>
+nnoremap <a-,> :action PreviousTab<CR>
+
+" move between splits
+nnoremap <a-h> <c-w>h
+nnoremap <a-l> <c-w>l
+nnoremap <a-k> <c-w>k
+nnoremap <a-j> <c-w>j
+
+" map arrow keys, mainly for console
+map <a-i> <Action>(Console.History.Next)
+inoremap <a-u> <down>
+
+" pycharm only
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>B :action ToggleLineBreakpoint<CR>
+nnoremap <c-b> :action ToggleLineBreakpoint<CR>
+nnoremap <c-B> :action ToggleLineBreakpoint<CR>
+
+"" equalize splits
+map <leader>= <c-w>v:q<CR><c-w>s:q<CR>
+map <a-=> <c-w>v:q<CR><c-w>s:q<CR>
+
+" run/debug
+map <leader>d <Action>(DebugClass)
+map <leader>r <Action>(RunClass)
+
+" word wrap workaround
+nmap gqq <Action>(com.andrewbrookins.idea.wrap.WrapAction)
+vmap gq <Action>(com.andrewbrookins.idea.wrap.WrapAction)
+

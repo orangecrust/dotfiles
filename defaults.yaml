@@ -1,0 +1,6 @@
+windows:
+  installs:
+    cmd: scoop install {{ name }}
+    depends:
+      - scoop
+      - extras
