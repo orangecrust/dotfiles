@@ -1,6 +1,5 @@
 links:
   modules: ~/Documents/PowerShell/modules
-  Microsoft.PowerShell_profile.ps1: ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
   powershell.config.json: ~/Documents/PowerShell/powershell.config.json
 
 depends:
