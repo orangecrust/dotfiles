@@ -1,3 +1,4 @@
 depends:
   - ../python
+
 installs: pip install basedpyright
