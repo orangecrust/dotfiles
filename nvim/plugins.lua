@@ -55,19 +55,6 @@ remap('n', '<leader>m', '<Cmd>lua MiniExtra.pickers.marks()<CR>')
 --  c-x/a = mark/all
 --  a-cr = choose marked items
 
--- LSP
-remap('n', '<CA-a>', vim.lsp.buf.code_action)
-remap('n', '<CA-l>', vim.lsp.buf.format)
-remap('n', '<CA-d>', vim.lsp.buf.declaration)
-remap('n', '<CA-s>', vim.lsp.buf.document_symbol)
-remap('n', '<CA-i>', vim.lsp.buf.implementation)
-remap('n', '<CA-r>', vim.lsp.buf.references)
-remap('n', '<A-d>', vim.diagnostic.open_float)
-remap('n', '<S-F6>', vim.lsp.buf.rename)
--- notes:
---  <s-k>: open help
---  gd: goto defintion
-
 -- Outline
 remap('n', '<leader>o', "<Cmd>Outline<CR>")
 
@@ -93,6 +80,10 @@ vim.opt.rtp:prepend(lazypath)                                -- Ends here, this 
 -- -- LAZY PLUGINS START
 -- --===========================================================================
 require("lazy").setup({
+--     --===============================================================================================
+--     -- PLUGIN: LSPCONFIG
+--     --===============================================================================================
+    { 'neovim/nvim-lspconfig'},
 --     --===============================================================================================
 --     -- PLUGIN: MINI.NVIM
 --     --===============================================================================================
@@ -128,76 +119,7 @@ require("lazy").setup({
             }
         end
     },
---     --===============================================================================================
---     -- PLUGIN: LSP
---     --===============================================================================================
-    {
-        'neovim/nvim-lspconfig',
-        config = function()
-            local lspconfig = require('lspconfig')
-            local capabilities = vim.lsp.protocol.make_client_capabilities()
-            local custom_attach = function()
-                print('Lsp Attached.')
-            end
-            --===============================================================================================
-            -- LSP: LUA-LANG-SERVER (LUA)
-            --===============================================================================================
-            lspconfig.lua_ls.setup ({
-                on_attach = custom_attach,
-                capabilities = capabilities,
-                settings = {
-                    Lua = {
-                        runtime = { version = 'LuaJIT', },
-                        diagnostics = { enable = true, },
-                        workspace = {
-                            checkThirdParty = false,
-                            library = {
-                              vim.env.VIMRUNTIME,
-                            },
-                        },
-                        telemetry = { enable = false },
-                    },
-                },
-            })
-            --===============================================================================================
-            -- LSP: BASEDPYRIGHT (PYTHON)
-            --===============================================================================================
-            lspconfig.basedpyright.setup({
-                capabilities = capabilities,
-                settings = {
-                    basedpyright = {
-                        -- typeCheckingMode = 'off',
-                        -- autoSearchPaths = true,
-                        -- diagnosticMode = 'openFilesOnly',
-                        -- useLibraryCodeForTypes = false,
-                        openFilesOnly = true,
-                        disableOrganizeImports = true,
-                        reportMissingTypeStubs = false,
-                    },
-                    python = {
-                        analysis = {
-                            typeCheckingMode = 'basic',
-                            reportMissingTypeStubs = false,
-                            useLibraryCodeForTypes = true,
-                            -- ignore = { '*' },
-                        },
-                        typeCheckingMode = "off",
-                    }
-                },
-            })
-            --===============================================================================================
-            -- LSP: RUFF (PYTHON)
-            --===============================================================================================
-            lspconfig.ruff.setup({
-                trace = 'messages',
-                    init_options = {
-                        settings = {
-                            logLevel = 'debug',
-                        }
-                    }
-            })
-        end
-    },
+
     --===============================================================================================
     -- CODE SYMBOL OUTLINE
     --===============================================================================================
@@ -227,33 +149,6 @@ require('mini.hues').setup({ background = '#11262d', foreground = '#d0d0d0', sat
 -- CONFIG: OUTLINE
 --===========================================================================
 require('outline').setup({ providers = { priority = { 'lsp', 'treesitter' } } })
-
---===========================================================================
--- CONFIG: LSP
---===========================================================================
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics,
-    {
-      virtual_text = false,
-      signs = true,
-      update_in_insert = false,
-      underline = true,
-    }
-)
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup('lsp_attach_disable_ruff_hover', { clear = true }),
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client == nil then
-      return
-    end
-    -- if client.name == 'ruff' then
-    --   -- Disable hover in favor of Pyright
-    --   client.server_capabilities.hoverProvider = false
-    -- end
-  end,
-  desc = 'LSP: Disable hover capability from Ruff',
-})
 
 --===========================================================================
 -- CONFIG: MINI.COMPLETION

@@ -16,3 +16,5 @@ vim.cmd("source " .. vim.fs.joinpath(config_dir, "keymap.lua"))
 -- Plugins
 vim.cmd("source " .. vim.fs.joinpath(config_dir, "plugins.lua"))
 
+-- LSP
+vim.cmd("source " .. vim.fs.joinpath(config_dir, "lsp.lua"))

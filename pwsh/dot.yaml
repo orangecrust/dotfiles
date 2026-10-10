@@ -1,6 +1,8 @@
 links:
   modules: ~/Documents/PowerShell/modules
   powershell.config.json: ~/Documents/PowerShell/powershell.config.json
+  Microsoft.PowerShell_profile.ps1: ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+  README.md: ~/Documents/PowerShell/README.md
 
 depends:
   - ../windows_terminal

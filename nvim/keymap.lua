@@ -89,3 +89,6 @@ remap('n', '<leader>m', '<Cmd>bd<CR>')
 remap('n', '<leader>n', '<Cmd>tabe<CR>')
 remap('n', '<leader>/', '<Cmd>:1,.-bd|.+,$bd<CR><CR>')
 
+-- python
+-- remap('n', '<leader>ds', 'o""""""<c-\\><c-n>2hi')
+remap('n', '<leader>ds', 'yi((%o""""""<c-\\><c-n>2hiTODO<CR><CR><c-\\><c-n>P')

@@ -1,24 +1,19 @@
 [tool.basedpyright]
-include = ["src"]
+include = ["tests/fuji/char_test_suite"]  # source files
+extraPaths = []
 exclude = [
-    "**/node_modules",
-    "**/__pycache__",
-    "src/experimental",
-    "src/typestubs"
+    ".venv",
+    ".debug",
 ]
-ignore = ["src/oldstuff"]
-defineConstant = { DEBUG = true }
-stubPath = "src/stubs"
-
+pythonVersion = "3.11.17"
+pythonPlatform = "Windows"
+# rules
 reportMissingImports = "error"
 reportMissingTypeStubs = false
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+reportUnusedCallResult = false
+reportImplicitOverride = false
+reportAny = false
+reportUnannotatedClassAttribute = false
 
-pythonVersion = "3.6"
-pythonPlatform = "Linux"
-
-executionEnvironments = [
-  { root = "src/web", pythonVersion = "3.5", pythonPlatform = "Windows", extraPaths = [ "src/service_libs" ], reportMissingImports = "warning" },
-  { root = "src/sdk", pythonVersion = "3.0", extraPaths = [ "src/backend" ] },
-  { root = "src/tests", reportPrivateUsage = false, extraPaths = ["src/tests/e2e", "src/sdk" ]},
-  { root = "src" }
-]

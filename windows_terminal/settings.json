@@ -12,6 +12,18 @@
             "id": "User.copy.644BA8F2"
         },
         {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "id": "User.moveFocus.F747588A"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -24,25 +36,9 @@
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "down"
-            },
-            "id": "User.moveFocus.F747588A"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
                 "direction": "up"
             },
             "id": "User.moveFocus.6CD791B"
-        },
-        {
-            "command": "paste",
-            "id": "User.paste"
         },
         {
             "command": 
@@ -51,6 +47,10 @@
                 "direction": "right"
             },
             "id": "User.moveFocus.87C324ED"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
         },
         {
             "command": 
@@ -65,7 +65,7 @@
     "copyOnSelect": false,
     "defaultProfile": "{f89bfa41-d286-4626-b6d5-741223f7ce50}",
     "disableAnimations": false,
-    "firstWindowPreference": "persistedWindowLayout",
+    "firstWindowPreference": "defaultProfile",
     "initialCols": 200,
     "initialRows": 60,
     "keybindings": 
@@ -79,16 +79,16 @@
             "keys": "alt+shift+d"
         },
         {
-            "id": "User.moveFocus.F747588A",
-            "keys": "alt+shift+j"
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
         },
         {
             "id": "User.paste",
             "keys": "ctrl+v"
         },
         {
-            "id": "User.find",
-            "keys": "ctrl+shift+f"
+            "id": "User.moveFocus.F747588A",
+            "keys": "alt+shift+j"
         },
         {
             "id": "User.moveFocus.6CD791B",
@@ -120,7 +120,7 @@
             "font": 
             {
                 "builtinGlyphs": true,
-                "cellHeight": "1.1",
+                "cellHeight": "1.2",
                 "colorGlyphs": false,
                 "face": "PragmataPro Mono Liga",
                 "features": {},
@@ -188,25 +188,8 @@
                 "name": "notes",
                 "padding": "2",
                 "scrollbarState": "hidden",
-                "startingDirectory": "C:\\Users\\sashore\\OneDrive - Silicon Laboratories Inc\\obsidian\\obsidian\\scratchpad",
+                "startingDirectory": "%USERPROFILE%\\notes",
                 "tabColor": "#87AFAF"
-            },
-            {
-                "altGrAliasing": true,
-                "backgroundImageOpacity": 0.81,
-                "commandline": "pwsh.exe -nologo",
-                "font": 
-                {
-                    "colorGlyphs": true
-                },
-                "guid": "{058bd389-ff45-4558-ac8b-4ab46c8a45f6}",
-                "hidden": false,
-                "icon": "ms-appx:///ProfileIcons/pwsh.png",
-                "name": "git",
-                "padding": "2",
-                "scrollbarState": "hidden",
-                "startingDirectory": "%USERPROFILE%",
-                "tabColor": "#AFD7AF"
             },
             {
                 "altGrAliasing": true,
@@ -219,7 +202,7 @@
                 "guid": "{be33475b-22d6-45d9-902c-57f4e9cdf3bc}",
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
-                "name": "pwsh",
+                "name": "scratch",
                 "padding": "2",
                 "scrollbarState": "hidden",
                 "startingDirectory": "%USERPROFILE%",
@@ -234,6 +217,12 @@
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
+            },
+            {
+                "guid": "{fe66f4b8-350f-56bb-adb0-c2ce745f6db5}",
+                "hidden": false,
+                "name": "PowerShell (scoop)",
+                "source": "Windows.Terminal.PowershellCore"
             }
         ]
     },
