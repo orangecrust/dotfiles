@@ -1,3 +1,5 @@
 links:
   .obsidian: ~/obsidian_vaults/.obsidian
   dotlink.ps1: ~/obsidian_vaults/dotlink.ps1
+
+installs: scoop install obsidian
