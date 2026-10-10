@@ -1,0 +1,4 @@
+links:
+  config: C:\Users\Sam\AppData\Roaming\bat\config
+
+installs: scoop install bat
