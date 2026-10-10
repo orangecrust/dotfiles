@@ -1,0 +1,224 @@
+{
+  "main": {
+    "id": "4cf7f8cdd1c0cdd9",
+    "type": "split",
+    "children": [
+      {
+        "id": "c24ff4915503b995",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f91f5f1b079dfd1a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_Resources/Link Collection.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Link Collection"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b9a66106c870c70d",
+    "type": "split",
+    "children": [
+      {
+        "id": "e8a34cb0c7307f8b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cd2711c38cd20a99",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "493681b445562f84",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "6d6bab7b20bbd025",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 242.5
+  },
+  "right": {
+    "id": "fecc303d5168e919",
+    "type": "split",
+    "children": [
+      {
+        "id": "573cbff441268827",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2369f7f31d37d374",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "scratchpad/1.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 1"
+            }
+          },
+          {
+            "id": "8c72fa8529041be5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Link Collection.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Link Collection"
+            }
+          },
+          {
+            "id": "151f7098db011a0d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b44686e643a7988b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Link Collection.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Link Collection"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "f91f5f1b079dfd1a",
+  "lastOpenFiles": [
+    "_scratchpad/excalidraw test/office inspiration.md",
+    "_Resources/Link Collection.md",
+    "_Resources/Board Decoder.md",
+    "Misc Notes/Pasted image 20250916114706.png",
+    "Misc Notes/Test Execution Requirements.md",
+    "Meeting Notes/26-09-25 Dan SW Chat.md",
+    "Meeting Notes/26-09-22 LabATE Code Quality Gates and Improvements.md",
+    "_scratchpad/1.md",
+    "_scratchpad/csen_scope_questions.txt",
+    "google.com.md",
+    "Meeting Notes/26-08-20 Capsense MVP Scope Discussion.md",
+    "lebod_bd.png",
+    "_scratchpad/station_bringup.md",
+    "Meeting Notes/25-11-18 Cap Sense Working Session X-Functional.md",
+    "Pasted Image 20260706132414_512.png",
+    "Pasted Image 20260706131510_327.png",
+    "Pasted Image 20260706131401_523.png",
+    "Pasted Image 20260706131352_817.png",
+    "Pasted Image 20260706131320_720.png",
+    "Pasted Image 20260706131111_805.png",
+    "Pasted Image 20260706131057_209.png",
+    "Pasted Image 20260706131050_582.png",
+    "_scratchpad/Thoughts and Improvements/README Proposal.md",
+    "_scratchpad/Thoughts and Improvements/Low Effort High Reward Improvements.md",
+    "_scratchpad/Thoughts and Improvements/Thermostream Temperature Ramp Optimization.md",
+    "Chip Notes/Chip Notes.md",
+    "Chip Notes/IP Notes/BTOP Notes/EMU.md",
+    "_scratchpad/excalidraw test/attachments",
+    "_scratchpad/Untitled/desktop.ini",
+    "_scratchpad/excalidraw test",
+    "Chip Notes/IP Notes/BTOP Notes/LEBOD.md",
+    "Chip Notes/IP Notes/BTOP Notes/LVBOD.md",
+    "Chip Notes/IP Notes/BTOP Notes/CSEN.md",
+    "Chip Notes/IP Notes/BTOP Notes",
+    "_scratchpad/venv prompt.md",
+    "_scratchpad/Thoughts and Improvements/py_stat_suite.md",
+    "_scratchpad/Thoughts and Improvements/Repo Structure.md",
+    "Everest/Keith CSEN meeting.md",
+    "Chip Notes/IP Notes/Cap Sense Validation Plan Draft.md",
+    "Test Executor Ideas/HW Resource Initialization.md",
+    "Chip Notes",
+    "Serval/Serval Notes.md",
+    "_scratchpad/Thoughts and Improvements",
+    "Serval",
+    "silabs.com/design/projects/ip_em_22nm/tsmc22ull/modules/gp_dac12/docs/desktop.ini",
+    "silabs.com/design/projects/ip_em_22nm/tsmc22ull/modules/gp_dac12/desktop.ini"
+  ]
+}

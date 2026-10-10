@@ -1,0 +1,30 @@
+{
+  "workspace:close": [],
+  "edit-in-neovim:edit-in-neovim-new-instance": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "N"
+    }
+  ],
+  "edit-in-neovim:edit-in-neovim-close-instance": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "M"
+    }
+  ],
+  "terminal:close-terminal": [],
+  "terminal:clear-terminal": [],
+  "terminal:find-in-terminal": [],
+  "terminal:open-terminal.select.": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "T"
+    }
+  ]
+}
