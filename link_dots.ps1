@@ -4,9 +4,10 @@
 Links files and directories described by first-level dot.yaml files.
 .DESCRIPTION
 Place this script at ~/.dotfiles/link_dots.ps1 and run it from PowerShell on Windows.
-Each first-level directory (except .git) may contain a dot.yaml with a top-level
-links: mapping. Keys are files or directories directly in that directory. Values
-are destination paths. Existing destinations are removed before links are made.
+Each first-level directory (except .git and names listed in ignore_dots.yaml or
+ignore.yml at the dotfiles root) may contain a dot.yaml with a top-level links:
+mapping. Keys are files or directories directly in that directory. Values are
+destination paths. Existing destinations are removed before links are made.
 
 The parser supports plain, single-quoted, and double-quoted scalar paths in the
 links: mapping. Quote paths containing # or trailing spaces. It does not support
@@ -102,6 +103,57 @@ function Get-LinkEntries {
     return $entries.ToArray()
 }
 
+function Read-IgnoreNames {
+    param([string] $Root)
+    $ignored = @{}
+    foreach ($fileName in @('ignore_dots.yaml', 'ignore.yml')) {
+        $path = Join-Path $Root $fileName
+        if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { continue }
+        $inIgnore = $false
+        $itemIndent = -1
+        $seen = $false
+        $lines = [IO.File]::ReadAllLines($path)
+        for ($i = 0; $i -lt $lines.Length; $i++) {
+            $line = $lines[$i]
+            $location = '{0}:{1}' -f $path, ($i + 1)
+            if ($line -match '^\s*(?:#.*)?$') { continue }
+            if ($line -match '^( +)?\t') { throw "Tab indentation is unsupported at $location" }
+            $indent = [regex]::Match($line, '^ *').Length
+            if ($indent -eq 0) {
+                $inIgnore = $false
+                $itemIndent = -1
+                if ($line -match '^ignore\s*:\s*(.*?)\s*$') {
+                    if ($seen) { throw "Duplicate ignore: key at $location" }
+                    $seen = $true
+                    $inIgnore = $true
+                    $inline = $Matches[1]
+                    if ($inline -and $inline -notmatch '^#') {
+                        if ($inline -eq '[]') { $inIgnore = $false; continue }
+                        $value = Read-PathScalar $inline $location
+                        if ($value -eq '.' -or $value -eq '..' -or $value -match '[\\/:*?"<>|]') {
+                            throw "Ignore value must be a first-level directory name at $location"
+                        }
+                        $ignored[$value] = $true
+                        $inIgnore = $false
+                    }
+                }
+                continue
+            }
+            if (-not $inIgnore) { continue }
+            if ($itemIndent -lt 0) { $itemIndent = $indent }
+            if ($indent -ne $itemIndent -or $line.Substring($indent) -notmatch '^-\s+(.+)$') {
+                throw "Expected an ignore list item at $location"
+            }
+            $value = Read-PathScalar $Matches[1] $location
+            if ($value -eq '.' -or $value -eq '..' -or $value -match '[\\/:*?"<>|]') {
+                throw "Ignore value must be a first-level directory name at $location"
+            }
+            $ignored[$value] = $true
+        }
+    }
+    return $ignored
+}
+
 function Test-WithinPath {
     param([string] $Path, [string] $Parent)
     $parentWithSlash = $Parent.TrimEnd('\', '/') + [IO.Path]::DirectorySeparatorChar
@@ -136,9 +188,11 @@ function Remove-Destination {
 
 $homePath = [IO.Path]::GetFullPath($HOME)
 $dotfilesPath = [IO.Path]::GetFullPath($PSScriptRoot)
+$ignored = Read-IgnoreNames $dotfilesPath
 $plans = New-Object 'System.Collections.Generic.List[object]'
 
-foreach ($folder in (Get-ChildItem -LiteralPath $dotfilesPath -Directory -Force | Where-Object Name -ne '.git')) {
+foreach ($folder in (Get-ChildItem -LiteralPath $dotfilesPath -Directory -Force |
+    Where-Object { $_.Name -ne '.git' -and -not $ignored.ContainsKey($_.Name) })) {
     $yamlPath = Join-Path $folder.FullName 'dot.yaml'
     if (-not (Test-Path -LiteralPath $yamlPath -PathType Leaf)) { continue }
     foreach ($entry in (Get-LinkEntries $yamlPath)) {
@@ -194,3 +248,4 @@ foreach ($plan in $plans) {
         Write-Error "Failed to link $($plan.Location): $_"
     }
 }
+
