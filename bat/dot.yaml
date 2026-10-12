@@ -1,4 +1,4 @@
 links:
   config: ~/bat/config
 
-installs: scoop install bat
+installs: scoop install bat, less
