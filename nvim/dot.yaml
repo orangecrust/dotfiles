@@ -9,8 +9,4 @@ links:
   plugins.lua: ~/AppData/Local/nvim/plugins.lua
   snippets: ~/AppData/Local/nvim/snippets
 
-depends:
-  - ../pwsh
-  - ../windows_terminal
-
 installs: scoop install neovim, ripgrep, fzf, zig, lua-language-server, fd
